@@ -10,6 +10,8 @@ import net.minecraft.world.item.Items;
 import java.util.function.Function;
 
 public class ModItems {
+    public static final Item EXAMPLE_BLOCK = Items.registerBlock(ModBlocks.EXAMPLE_BLOCK);
+
     public static final Item MOD_ICON = register("mod_icon");
     public static final Item EXAMPLE_ITEM = register("example_item", p -> new Item(p), new Item.Properties());
 

@@ -25,12 +25,13 @@ public class ModCreativeTabs {
                         output.accept(ModItems.EXAMPLE_ITEM);
                     }).build());
 
-    private static final List<Item> ITEM_BLACKLIST = ImmutableList.of(ModItems.MOD_ICON);
+    private static final List<Item> BLACKLIST = ImmutableList.of(ModItems.MOD_ICON);
     public static CreativeModeTab MOD_TAB = register("mod_tab",
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .icon(() -> new ItemStack(ModItems.MOD_ICON))
                     .title(Component.translatable("itemGroup.mod_tab"))
                     .displayItems((parameters, output) -> {
+                        //Add all mod items that are not on BLACKLIST
                         Arrays.stream(ModItems.class.getFields())
                                 .filter(field -> field.getType() == Item.class) // Ensure only Item fields
                                 .map(field -> {
@@ -41,7 +42,7 @@ public class ModCreativeTabs {
                                     }
                                 })
                                 .filter(Objects::nonNull) // Ensure item is not null
-                                .filter(item -> !ITEM_BLACKLIST.contains(item)) // Apply blacklist filter
+                                .filter(item -> !BLACKLIST.contains(item)) // Apply blacklist filter
                                 .forEach(item -> output.accept(new ItemStack(item))); // Add to creative tab
                     }).build());
 
