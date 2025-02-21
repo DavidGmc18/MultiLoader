@@ -1,6 +1,6 @@
-package com.example.examplemod.platform;
+package net.Davidak.ExampleMod.platform;
 
-import com.example.examplemod.platform.services.IPlatformHelper;
+import net.Davidak.ExampleMod.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatformHelper implements IPlatformHelper {

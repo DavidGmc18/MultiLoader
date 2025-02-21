@@ -1,7 +1,7 @@
-package com.example.examplemod.platform;
+package net.Davidak.ExampleMod.platform;
 
-import com.example.examplemod.Constants;
-import com.example.examplemod.platform.services.IPlatformHelper;
+import net.Davidak.ExampleMod.Constants;
+import net.Davidak.ExampleMod.platform.services.IPlatformHelper;
 
 import java.util.ServiceLoader;
 

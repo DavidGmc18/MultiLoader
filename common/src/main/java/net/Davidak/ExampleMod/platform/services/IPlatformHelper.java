@@ -1,4 +1,4 @@
-package com.example.examplemod.platform.services;
+package net.Davidak.ExampleMod.platform.services;
 
 public interface IPlatformHelper {
 
