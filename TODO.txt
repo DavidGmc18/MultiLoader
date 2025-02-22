@@ -1,4 +1,14 @@
 TODO
 
+COMPOSTABLES.put() is now working on neoforge because it is deprecated and ignored, use neoforge data map instead, refer to:
+    -https://docs.neoforged.net/docs/resources/server/datamaps/builtin/#neoforgecompostables
+    -use interface
+
 fabric.mod.json, neoforge.mods.toml, mods.toml
 README.md
+
+register wood set function
+villager trades (and wanderer)
+datagen, maybe unified item data registry (specify it is door and will do all jsons: block-states, models, tags etc.)
+block-entities, boats, food, fuel
+world-gen
