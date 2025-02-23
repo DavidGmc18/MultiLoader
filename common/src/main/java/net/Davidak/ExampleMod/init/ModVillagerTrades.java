@@ -15,8 +15,8 @@ public class ModVillagerTrades {
         });
 
         addWanderingTrades(1, new ItemListing[]{
-                new EmeraldForItems(ModItems.EXAMPLE_ITEM, 20, 16, 2),
-                new EmeraldForItems(ModItems.EXAMPLE_BLOCK, 20, 16, 2)
+                new ItemsForEmeralds(ModItems.EXAMPLE_ITEM, 20, 16, 2),
+                new ItemsForEmeralds(ModItems.EXAMPLE_BLOCK, 20, 16, 2)
         });
     }
 
