@@ -2,8 +2,8 @@ TODO
 
 datagen, maybe unified item data registry (specify it is door and will do all jsons: block-states, models, tags etc.)
 block-entities, boats, food, fuel
-world-gen
 
+publishing system
 register wood set function
 Are Forges "experimental settings" issue?
 Maybe add contact to mod.properties

@@ -32,6 +32,7 @@ public class ModCreativeTabs {
                     .title(Component.translatable("itemGroup.mod_tab"))
                     .displayItems((parameters, output) -> {
                         //Add all mod items that are not on BLACKLIST
+                        //TODO make function for this
                         Arrays.stream(ModItems.class.getFields())
                                 .filter(field -> field.getType() == Item.class) // Ensure only Item fields
                                 .map(field -> {
