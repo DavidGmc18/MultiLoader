@@ -1,4 +1,4 @@
-package net.Davidak.ExampleMod.datagen.provider;
+package net.Davidak.ExampleMod.datagen;
 
 import net.Davidak.ExampleMod.init.ModVanillaIntegration;
 import net.minecraft.core.HolderLookup;
