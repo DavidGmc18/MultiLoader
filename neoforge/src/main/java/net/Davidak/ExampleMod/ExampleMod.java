@@ -1,9 +1,6 @@
 package net.Davidak.ExampleMod;
 
-import net.Davidak.ExampleMod.init.ModBlocks;
-import net.Davidak.ExampleMod.init.ModCreativeTabs;
-import net.Davidak.ExampleMod.init.ModItems;
-import net.Davidak.ExampleMod.init.ModVanillaIntegration;
+import net.Davidak.ExampleMod.init.*;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -26,5 +23,8 @@ public class ExampleMod {
             ModVanillaIntegration.register();
         }
         if (event.getRegistryKey().equals(Registries.CREATIVE_MODE_TAB)) ModCreativeTabs.register();
+
+        //TODO I am not sure if this is safe approach.
+        if (event.getRegistryKey().equals(Registries.VILLAGER_PROFESSION)) ModVillagerTrades.register();
     }
 }

@@ -1,9 +1,5 @@
 TODO
 
-COMPOSTABLES.put() is now working on neoforge because it is deprecated and ignored, use neoforge data map instead, refer to:
-    -https://docs.neoforged.net/docs/resources/server/datamaps/builtin/#neoforgecompostables
-    -use interface
-
 fabric.mod.json, neoforge.mods.toml, mods.toml
 README.md
 

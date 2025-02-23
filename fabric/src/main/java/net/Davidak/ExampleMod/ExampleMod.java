@@ -1,9 +1,6 @@
 package net.Davidak.ExampleMod;
 
-import net.Davidak.ExampleMod.init.ModBlocks;
-import net.Davidak.ExampleMod.init.ModCreativeTabs;
-import net.Davidak.ExampleMod.init.ModItems;
-import net.Davidak.ExampleMod.init.ModVanillaIntegration;
+import net.Davidak.ExampleMod.init.*;
 import net.fabricmc.api.ModInitializer;
 
 public class ExampleMod implements ModInitializer {
@@ -13,6 +10,7 @@ public class ExampleMod implements ModInitializer {
         ModItems.register();
         ModVanillaIntegration.register();
         ModCreativeTabs.register();
+        ModVillagerTrades.register();
 
         CommonClass.init();
     }
