@@ -13,22 +13,18 @@ public class ModItems {
     public static final Item EXAMPLE_BLOCK = Items.registerBlock(ModBlocks.EXAMPLE_BLOCK);
 
     public static final Item MOD_ICON = register("mod_icon");
-    public static final Item EXAMPLE_ITEM = register("example_item", p -> new Item(p), new Item.Properties());
+    public static final Item EXAMPLE_ITEM = register("example_item", new Item(new Item.Properties()));
 
     private static Item register(String name) {
-        return Items.registerItem(modItemID(name), Item::new, new Item.Properties());
-    }
-
-    private static Item register(String name, Function<Item.Properties, Item> factory) {
-        return Items.registerItem(modItemID(name), factory, new Item.Properties());
+        return Items.registerItem(modItemID(name), new Item(new Item.Properties()));
     }
 
     private static Item register(String name, Item.Properties properties) {
-        return Items.registerItem(modItemID(name), Item::new, properties);
+        return Items.registerItem(modItemID(name), new Item(properties));
     }
 
-    private static Item register(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
-        return Items.registerItem(modItemID(name), factory, properties);
+    private static Item register(String name, Item item) {
+        return Items.registerItem(modItemID(name), item);
     }
 
     private static ResourceKey<Item> modItemID(String name) {

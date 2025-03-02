@@ -18,7 +18,7 @@ public class ModDataMapProvider extends DataMapProvider {
     }
 
     @Override
-    protected void gather(HolderLookup.Provider lookup) {
+    protected void gather() {
         ModVanillaIntegration.compostables.forEach((item, chance) -> compostables.add(item.asItem().builtInRegistryHolder(), new Compostable(chance), false));
     }
 }

@@ -14,14 +14,14 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = Constants.MOD_ID)
 public class DataGenerators {
     @SubscribeEvent
-    public static void onGatherData(GatherDataEvent.Client event) {
+    public static void onGatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(true, new ModDataMapProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModDataMapProvider(output, lookupProvider));
 
-        generator.addProvider(true, new ModDatapackProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModDatapackProvider(output, lookupProvider));
     }
 }

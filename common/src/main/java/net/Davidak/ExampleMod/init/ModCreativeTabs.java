@@ -25,26 +25,14 @@ public class ModCreativeTabs {
                         output.accept(ModItems.EXAMPLE_ITEM);
                     }).build());
 
-    private static final List<Item> BLACKLIST = ImmutableList.of(ModItems.MOD_ICON);
     public static CreativeModeTab MOD_TAB = register("mod_tab",
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .icon(() -> new ItemStack(ModItems.MOD_ICON))
                     .title(Component.translatable("itemGroup.mod_tab"))
                     .displayItems((parameters, output) -> {
-                        //Add all mod items that are not on BLACKLIST
-                        //TODO make function for this
-                        Arrays.stream(ModItems.class.getFields())
-                                .filter(field -> field.getType() == Item.class) // Ensure only Item fields
-                                .map(field -> {
-                                    try {
-                                        return (Item) field.get(null); // Get item
-                                    } catch (IllegalAccessException e) {
-                                        throw new RuntimeException("Cannot access item: " + field.getName(), e);
-                                    }
-                                })
-                                .filter(Objects::nonNull) // Ensure item is not null
-                                .filter(item -> !BLACKLIST.contains(item)) // Apply blacklist filter
-                                .forEach(item -> output.accept(new ItemStack(item))); // Add to creative tab
+                        addItemsFromClass(output, ModItems.class, ImmutableList.of(
+                                ModItems.MOD_ICON
+                        ));
                     }).build());
 
     private static CreativeModeTab register(String name, CreativeModeTab tab) {
@@ -52,6 +40,21 @@ public class ModCreativeTabs {
                 BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name)),
                 tab);
+    }
+
+    private static void addItemsFromClass(CreativeModeTab.Output output, Class clazz, List<Item> blacklist) {
+        Arrays.stream(clazz.getFields())
+                .filter(field -> field.getType() == Item.class)
+                .map(field -> {
+                    try {
+                        return (Item) field.get(null);
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException("Cannot access item: " + field.getName(), e);
+                    }
+                })
+                .filter(Objects::nonNull)
+                .filter(item -> !blacklist.contains(item))
+                .forEach(item -> output.accept(new ItemStack(item)));
     }
 
     public static void register() {}
